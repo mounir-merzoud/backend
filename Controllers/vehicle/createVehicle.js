@@ -1,11 +1,22 @@
-const Vehicle = require('../models/vehicleModel');
+const Vehicle = require("../../models/vehicleModel");
 
 // Fonction pour ajouter un véhicule
-const addVehicle = async (req, res) => {
+const createVehicle = async (req, res) => {
   try {
     const {
-      model, brand, year, color, fuelType, mileage, transmission,
-      doors, seats, chassisNumber, price, condition, description
+      model,
+      brand,
+      year,
+      color,
+      fuelType,
+      mileage,
+      transmission,
+      doors,
+      seats,
+      chassisNumber,
+      price,
+      condition,
+      description,
     } = req.body;
 
     // Crée un nouveau véhicule
@@ -31,8 +42,10 @@ const addVehicle = async (req, res) => {
     // Réponse au client
     res.status(201).json(savedVehicle);
   } catch (error) {
-    res.status(400).json({ message: 'Failed to add vehicle', error: error.message });
+    res
+      .status(400)
+      .json({ message: "Failed to add vehicle", error: error.message });
   }
 };
 
-module.exports = { addVehicle };
+module.exports = { createVehicle };
