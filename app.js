@@ -10,7 +10,7 @@ const app = express();
 
 // Connexion à MongoDB
 const uri =
-  "mongodb+srv://mounir:Mounir-1992@cluster0.zp66i.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+  "mongodb+srv://merzoudmounir92:Mounir-1992@gestion1.0cckj.mongodb.net/?retryWrites=true&w=majority&appName=Gestion1";
 
 mongoose
   .connect(uri, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -34,6 +34,7 @@ app.use((req, res, next) => {
 app.use(bodyParser.json()); // Parser JSON
 
 // Routes
+app.use("/api/signup", userRoutes);
 app.use("/api/stuff", stuffRoutes);
 app.use("/api/auth", userRoutes);
 app.use("/api/vehicles", vehicleRoutes); // Nouvelle route pour véhicules
